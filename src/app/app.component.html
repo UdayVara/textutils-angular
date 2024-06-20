@@ -1,0 +1,28 @@
+<app-header [mode]="bgMode" (changeBgMode)="changeBgMode()"></app-header>
+
+<div class="container mx-auto mt-3" [ngClass]="bgMode == 'light'?'text-dark':'text-light'">
+  <h4 class="display-6 fw-semibold">
+    Enter Text Here
+  </h4>
+
+  <textarea (ngModelChange)="calculateStats()" [(ngModel)]="inputString" name="" id="" style="width: 100%;" rows="10" class="form-control bg-light shadow" [ngClass]="bgMode == 'light' ? 'text-dark bg-light' : 'text-light bg-dark'"></textarea>
+
+
+  <div class="d-flex align-items-center gap-4 mt-4">
+    <button class="btn btn-primary" (click)="convertToUppercase()">Change to Uppercase</button>
+    <button class="btn btn-primary" (click)="convertToLowercase()">Change to Lowercase</button>
+    <button class="btn btn-primary" (click)="clear()">Clear</button>
+    <button class="btn btn-primary" (click)="copyText()">Copy</button>
+    <button class="btn btn-primary" (click)="convertToCapitalize()">Capitalize</button>
+    <button class="btn btn-primary" (click)="toggleCase()">Togglecase</button>
+  </div>
+
+  <h4 class="mt-3">Your Text Summary</h4>
+
+  <h6>{{words}} words, {{inputString.length}} characters</h6>
+  <h6>{{duration}} Minute to Read</h6>
+
+  <h4 class="mt-3">Preview</h4>
+  <p>{{inputString}}</p>
+
+</div>
